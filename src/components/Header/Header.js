@@ -21,28 +21,28 @@ const Header = () => {
         </LogoWrapper>
         <DesktopNav>
           <NavWrapper>
-            <NavLink href="/sale">Sale</NavLink>
-            <BoldNavLink href="/sale">Sale</BoldNavLink>
+            <Text href="/sale">Sale</Text>
+            {/* <BoldNavLink href="/sale">Sale</BoldNavLink> */}
           </NavWrapper>
           <NavWrapper>
-            <NavLink href="/new">New&nbsp;Releases</NavLink>
-            <BoldNavLink href="/new">New&nbsp;Releases</BoldNavLink>
+            <Text href="/new">New&nbsp;Releases</Text>
+            {/* {/* <BoldNavLink href="/new">New&nbsp;Releases</BoldNavLink> */}
           </NavWrapper>
           <NavWrapper>
-            <NavLink href="/men">Men</NavLink>
-            <BoldNavLink href="/men">Men</BoldNavLink>
+            <Text href="/men">Men</Text>
+            {/* {/* <BoldNavLink href="/men">Men</BoldNavLink> */}
           </NavWrapper>
           <NavWrapper>
-            <NavLink href="/women">Women</NavLink>
-            <BoldNavLink href="/women">Women</BoldNavLink>
+            <Text href="/women">Women</Text>
+            {/* {/* <BoldNavLink href="/women">Women</BoldNavLink> */}
           </NavWrapper>
           <NavWrapper>
-            <NavLink href="/kids">Kids</NavLink>
-            <BoldNavLink href="/kids">Kids</BoldNavLink>
+            <Text href="/kids">Kids</Text>
+            {/* {/* <BoldNavLink href="/kids">Kids</BoldNavLink> */}
           </NavWrapper>
           <NavWrapper>
-            <NavLink href="/collections">Collections</NavLink>
-            <BoldNavLink href="/collections">Collections</BoldNavLink>
+            <Text href="/collections">Collections</Text>
+            {/* {/* <BoldNavLink href="/collections">Collections</BoldNavLink> */}
           </NavWrapper>
         </DesktopNav>
         <MobileActions>
@@ -141,10 +141,36 @@ const NavWrapper = styled.a`
   color: var(--color-gray-900);
   font-weight: ${WEIGHTS.medium};
 
-  overflow: hidden;
   &:first-of-type {
     color: var(--color-secondary);
   }
+
+    ::before,
+    ::after {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: #566473;
+      content: '';
+      transform: scale(0.85);
+      transition: transform 0.3s;
+    }
+
+    ::after {
+        transition: top 0.3s, opacity 0.3s, transform 0.3s;
+    }
+
+    &:hover ::before {
+      transform: scale(1);
+    }
+
+    &:hover ::after {
+     opacity: 1;
+     top: 0% ;
+    transform: scale(1);
+    }
 `;
 
 const Text = styled.span`
@@ -166,7 +192,8 @@ const NavLink = styled(Text)`
   --translate-to: -100%;
 `;
 
-const BoldNavLink = styled(Text)`\  --translate-from: 100%;
+const BoldNavLink = styled(Text)`
+  --translate-from: 100%;
   --translate-to: 0%;
   position: absolute;
   top: 0;
