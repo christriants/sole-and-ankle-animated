@@ -77,11 +77,20 @@ const Wrapper = styled.article``;
 
 const ImageWrapper = styled.div`
   position: relative;
+  overflow: hidden;
 `;
 
 const Image = styled.img`
   width: 100%;
   border-radius: 16px 16px 4px 4px;
+  transform: scale(1);
+    transition: transform 500ms;
+  
+
+  &:hover {
+    transform: scale(1.1);
+    transition: transform 250ms;
+  }
 `;
 
 const Row = styled.div`
